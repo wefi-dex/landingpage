@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services - Happy Vic</title>
+    <script src="./public/service-hero-inline.js"></script>
+    <script src="./public/service-animations-inline.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link rel="stylesheet" href="./public/bootstrap.min.css" />
+    <link rel="stylesheet" href="./public/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="./public/zimed-icon.css" />
+    <style>
+      * { box-sizing: border-box; }
+      body.subpage { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #333; line-height: 1.5; }
+      .subpage .page-wrapper { min-height: 100vh; display: flex; flex-direction: column; }
+      .subpage .subpage-header {
+        background: linear-gradient(135deg, #4a0e8f 0%, #6b2d8a 100%);
+        padding: 16px 0;
+        position: relative;
+        z-index: 100;
+      }
+      .subpage .subpage-header .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+      .subpage .subpage-header .main-nav__logo img { display: block; height: 40px; width: auto; }
+      .subpage .subpage-header .main-nav__logo { text-decoration: none; }
+      .subpage .subpage-header .main-nav__nav-links {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 24px;
+      }
+      .subpage .subpage-header .main-nav__nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 15px;
+      }
+      .subpage .subpage-header .main-nav__nav-links a:hover { opacity: 0.9; text-decoration: underline; }
+      .subpage .subpage-hero {
+        padding: 60px 15px 40px;
+        text-align: center;
+        background: #f8f9fa;
+      }
+      .subpage .subpage-hero h1 { font-size: 2rem; margin: 0 0 12px; color: #222; }
+      .subpage .subpage-hero p { color: #666; max-width: 560px; margin: 0 auto; font-size: 1.05rem; }
+      .subpage .detail-list { padding: 48px 15px 80px; max-width: 1200px; margin: 0 auto; }
+      .subpage .back-link { display: inline-block; margin-bottom: 24px; color: #4a0e8f; text-decoration: none; font-weight: 500; }
+      .subpage .back-link:hover { text-decoration: underline; }
+      .subpage .detail-item {
+        margin-bottom: 48px;
+        padding-bottom: 48px;
+        border-bottom: 1px solid #eaeaea;
+      }
+      .subpage .detail-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+      .subpage .detail-item h2 {
+        font-size: 1.5rem;
+        margin: 0 0 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #222;
+      }
+      .subpage .detail-item h2 i { color: #4a0e8f; font-size: 1.25rem; }
+      .subpage .detail-item .lead { color: #555; margin: 0 0 16px; line-height: 1.6; font-size: 1rem; }
+      .subpage .detail-item ul { margin: 0; padding-left: 20px; color: #555; line-height: 1.8; }
+      .subpage .site-footer {
+        margin-top: auto;
+        background: #2c2c2c;
+        color: #bbb;
+        padding: 24px 15px;
+        text-align: center;
+      }
+      .subpage .site-footer a { color: #fff; text-decoration: none; margin: 0 8px; }
+      .subpage .site-footer a:hover { text-decoration: underline; }
+      .subpage .site-footer p { margin: 8px 0 0; font-size: 14px; }
+    </style>
+  </head>
+  <body class="subpage">
+    <div class="page-wrapper">
+      <header class="main-nav__header-one subpage-header">
+        <nav class="header-navigation">
+          <div class="container">
+            <a href="index.html" class="main-nav__logo">
+              <img src="./public/logo.png" width="180" alt="Happy Vic" />
+            </a>
+            <ul class="main-nav__nav-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <section class="subpage-hero">
+        <div class="container">
+          <div class="subpage-hero__animation">
+            <lottie-player
+              id="hero-lottie"
+              background="transparent"
+              speed="1"
+              style="width: 100%; max-width: 320px; height: 240px; margin: 0 auto 24px;"
+              loop
+              autoplay
+            ></lottie-player>
+          </div>
+          <h1>Our Services</h1>
+          <p>From AI and cloud to mobile apps, blockchain, and digital marketing. Here is our full list of services with more detail.</p>
+        </div>
+      </section>
+
+      <section class="detail-list">
+        <div class="container">
+          <a href="index.html#features" class="back-link">&larr; Back to Home</a>
+
+          <div class="detail-item" id="ai">
+            <div class="detail-item__lottie" style="max-width: 200px; height: 140px; margin-bottom: 16px;">
+              <lottie-player class="service-lottie" data-animation-index="0" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+            </div>
+            <h2><i class="zimed-icon-computer-graphic"></i> Artificial Intelligence &amp; Machine Learning</h2>
+            <p class="lead">We design and implement AI and ML solutions to automate decisions, improve products, and unlock value from your data.</p>
+            <ul>
+              <li>Custom ML models and pipelines</li>
+              <li>Natural language processing and computer vision</li>
+              <li>Integration with existing systems</li>
+              <li>Training, deployment, and ongoing optimization</li>
+            </ul>
+          </div>
+
+          <div class="detail-item" id="crm">
+            <div class="detail-item__lottie" style="max-width: 200px; height: 140px; margin-bottom: 16px;">
+              <lottie-player class="service-lottie" data-animation-index="1" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+            </div>
+            <h2><i class="zimed-icon-development1"></i> CRM &amp; Automation</h2>
+            <p class="lead">We help you choose, implement, and automate CRM and business workflows so sales and operations run smoothly.</p>
+            <ul>
+              <li>CRM selection and implementation</li>
+              <li>Sales and marketing automation</li>
+              <li>Workflow design and integration</li>
+              <li>Reporting and analytics</li>
+            </ul>
+          </div>
+
+          <div class="detail-item" id="web3">
+            <div class="detail-item__lottie" style="max-width: 200px; height: 140px; margin-bottom: 16px;">
+              <lottie-player class="service-lottie" data-animation-index="2" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+            </div>
+            <h2><i class="zimed-icon-development"></i> Web2 &amp; Web3 &amp; Blockchain Development</h2>
+            <p class="lead">From traditional web apps to Web3 and blockchain, we build secure, scalable platforms and smart contracts.</p>
+            <ul>
+              <li>Web and API development (Web2)</li>
+              <li>Smart contracts and DApps (Web3)</li>
+              <li>Blockchain integration and tokenization</li>
+              <li>Security audits and best practices</li>
+            </ul>
+          </div>
+
+          <div class="detail-item" id="mobile">
+            <div class="detail-item__lottie" style="max-width: 200px; height: 140px; margin-bottom: 16px;">
+              <lottie-player class="service-lottie" data-animation-index="3" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+            </div>
+            <h2><i class="zimed-icon-responsive"></i> Mobile App Development</h2>
+            <p class="lead">We build native and cross-platform mobile apps that deliver a great user experience on iOS and Android.</p>
+            <ul>
+              <li>iOS and Android native or cross-platform</li>
+              <li>UI/UX design and prototyping</li>
+              <li>Backend and API integration</li>
+              <li>App store submission and updates</li>
+            </ul>
+          </div>
+
+          <div class="detail-item" id="cloud">
+            <div class="detail-item__lottie" style="max-width: 200px; height: 140px; margin-bottom: 16px;">
+              <lottie-player class="service-lottie" data-animation-index="4" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+            </div>
+            <h2><i class="zimed-icon-development"></i> Cloud Development</h2>
+            <p class="lead">We design and build cloud-native solutions on AWS, Azure, or GCP for scalability, security, and cost efficiency.</p>
+            <ul>
+              <li>Cloud architecture and migration</li>
+              <li>Serverless and containerized workloads</li>
+              <li>DevOps, CI/CD, and infrastructure as code</li>
+              <li>Monitoring and cost optimization</li>
+            </ul>
+          </div>
+
+          <div class="detail-item" id="consultancy">
+            <div class="detail-item__lottie" style="max-width: 200px; height: 140px; margin-bottom: 16px;">
+              <lottie-player class="service-lottie" data-animation-index="5" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+            </div>
+            <h2><i class="zimed-icon-strategy"></i> Consultancy</h2>
+            <p class="lead">We provide technical and business consultancy to help you choose the right technology, roadmap, and partners.</p>
+            <ul>
+              <li>Technology strategy and roadmaps</li>
+              <li>Vendor selection and due diligence</li>
+              <li>Architecture and process reviews</li>
+              <li>Ad-hoc advisory and workshops</li>
+            </ul>
+          </div>
+
+          <div class="detail-item" id="seo">
+            <div class="detail-item__lottie" style="max-width: 200px; height: 140px; margin-bottom: 16px;">
+              <lottie-player class="service-lottie" data-animation-index="6" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+            </div>
+            <h2><i class="zimed-icon-training"></i> SEO &amp; Digital Marketing</h2>
+            <p class="lead">We improve your visibility and reach through SEO, content, and digital marketing so you attract and convert more customers.</p>
+            <ul>
+              <li>SEO audits, strategy, and implementation</li>
+              <li>Content strategy and creation</li>
+              <li>Paid campaigns and social media</li>
+              <li>Analytics and conversion optimization</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="container">
+          <p><a href="index.html">Home</a> <a href="services.html">Services</a> <a href="projects.html">Projects</a> <a href="index.html#contact">Contact</a></p>
+          <p>© Happy Vic</p>
+        </div>
+      </footer>
+    </div>
+    <script>
+      (function () {
+        function loadHeroLottie() {
+          var player = document.getElementById("hero-lottie");
+          if (player && window.HERO_ANIMATION_DATA) {
+            player.load(window.HERO_ANIMATION_DATA);
+            return;
+          }
+          setTimeout(loadHeroLottie, 50);
+        }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", loadHeroLottie);
+        } else {
+          loadHeroLottie();
+        }
+      })();
+      (function () {
+        function loadServiceLotties() {
+          if (!window.SERVICE_ANIMATIONS || window.SERVICE_ANIMATIONS.length < 7) {
+            setTimeout(loadServiceLotties, 50);
+            return;
+          }
+          var players = document.querySelectorAll(".service-lottie");
+          players.forEach(function (player) {
+            var idx = parseInt(player.getAttribute("data-animation-index"), 10);
+            if (!isNaN(idx) && window.SERVICE_ANIMATIONS[idx]) {
+              player.load(window.SERVICE_ANIMATIONS[idx]);
+            }
+          });
+        }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", loadServiceLotties);
+        } else {
+          loadServiceLotties();
+        }
+      })();
+    </script>
+  </body>
+</html>

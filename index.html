@@ -59,6 +59,9 @@
     <link href="#" rel="prefetch" as="script" />
     <link href="#" rel="prefetch" as="script" />
     <link href="#" rel="prefetch" as="script" />
+    <script src="./public/service-hero-inline.js"></script>
+    <script src="./public/service-animations-inline.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <style>
       .testimonial_pagination button {
         background: none;
@@ -131,6 +134,14 @@
         z-index: 2;
         position: relative;
       }
+      .service-one__link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+      }
+      .service-one__link:hover {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -142,7 +153,7 @@
               <nav class="header-navigation stricky">
                 <div class="container">
                   <div class="main-nav__logo-box">
-                    <a href="#" class="main-nav__logo"
+                    <a href="#banner" class="main-nav__logo"
                       ><img
                         src="./public/logo.png"
                         width="240"
@@ -155,7 +166,7 @@
                   <div class="main-nav__main-navigation">
                     <ul class="one-page-scroll-menu main-nav__navigation-box">
                       <li class="current scrollToLink">
-                        <a href="#">Home</a>
+                        <a href="#banner">Home</a>
                       </li>
                       <li class="scrollToLink">
                         <a href="#features">Features</a>
@@ -176,7 +187,7 @@
                             <a href="#projects">Projects</a>
                           </li>
                           <li>
-                            <a href="#projects"></a>
+                            <a href="projects.html">View all projects</a>
                           </li>
                         </ul>
                       </li>
@@ -267,6 +278,16 @@
           </section>
           <section class="service-one" id="features">
             <div class="container">
+              <div class="service-one__hero text-center mb-5">
+                <lottie-player
+                  id="hero-lottie"
+                  background="transparent"
+                  speed="1"
+                  style="width: 100%; max-width: 360px; height: 280px; margin: 0 auto;"
+                  loop
+                  autoplay
+                ></lottie-player>
+              </div>
               <div class="block-title text-center">
                 <span class="block-title__bubbles"></span>
                 <p>Business &amp; Service Solutions</p>
@@ -274,54 +295,95 @@
               </div>
               <div class="row">
                 <div
-                  class="service-one__col wow fadeInUp"
+                  class="service-one__col col-lg-3 col-md-4 col-sm-6 wow fadeInUp"
                   data-wow-duration="1500ms"
                   data-wow-delay="000ms"
                 >
-                  <div class="service-one__single">
-                    <i class="zimed-icon-responsive"></i>
-                    <h3>Business Strategy</h3>
+                  <div class="service-one__lottie-wrap" style="height: 120px; margin-bottom: 12px;">
+                    <lottie-player class="service-lottie" data-animation-index="0" background="transparent" speed="1" style="width: 100%; height: 120px;" loop autoplay></lottie-player>
                   </div>
+                  <a href="services.html#ai" class="service-one__single service-one__link">
+                    <i class="zimed-icon-computer-graphic"></i>
+                    <h3>Artificial Intelligence &amp; Machine Learning</h3>
+                  </a>
                 </div>
                 <div
-                  class="service-one__col wow fadeInUp"
+                  class="service-one__col col-lg-3 col-md-4 col-sm-6 wow fadeInUp"
                   data-wow-duration="1500ms"
                   data-wow-delay="100ms"
                 >
-                  <div class="service-one__single">
-                    <i class="zimed-icon-computer-graphic"></i>
-                    <h3>Service Operations</h3>
+                  <div class="service-one__lottie-wrap" style="height: 120px; margin-bottom: 12px;">
+                    <lottie-player class="service-lottie" data-animation-index="1" background="transparent" speed="1" style="width: 100%; height: 120px;" loop autoplay></lottie-player>
                   </div>
+                  <a href="services.html#crm" class="service-one__single service-one__link">
+                    <i class="zimed-icon-development1"></i>
+                    <h3>CRM &amp; Automation</h3>
+                  </a>
                 </div>
                 <div
-                  class="service-one__col wow fadeInUp"
+                  class="service-one__col col-lg-3 col-md-4 col-sm-6 wow fadeInUp"
                   data-wow-duration="1500ms"
                   data-wow-delay="200ms"
                 >
-                  <div class="service-one__single">
-                    <i class="zimed-icon-development1"></i>
-                    <h3>Process Automation</h3>
+                  <div class="service-one__lottie-wrap" style="height: 120px; margin-bottom: 12px;">
+                    <lottie-player class="service-lottie" data-animation-index="2" background="transparent" speed="1" style="width: 100%; height: 120px;" loop autoplay></lottie-player>
                   </div>
+                  <a href="services.html#web3" class="service-one__single service-one__link">
+                    <i class="zimed-icon-development"></i>
+                    <h3>Web2 &amp; Web3 &amp; Blockchain Development</h3>
+                  </a>
                 </div>
                 <div
-                  class="service-one__col wow fadeInUp"
+                  class="service-one__col col-lg-3 col-md-4 col-sm-6 wow fadeInUp"
                   data-wow-duration="1500ms"
                   data-wow-delay="300ms"
                 >
-                  <div class="service-one__single">
-                    <i class="zimed-icon-development"></i>
-                    <h3>Digital Presence</h3>
+                  <div class="service-one__lottie-wrap" style="height: 120px; margin-bottom: 12px;">
+                    <lottie-player class="service-lottie" data-animation-index="3" background="transparent" speed="1" style="width: 100%; height: 120px;" loop autoplay></lottie-player>
                   </div>
+                  <a href="services.html#mobile" class="service-one__single service-one__link">
+                    <i class="zimed-icon-responsive"></i>
+                    <h3>Mobile App Development</h3>
+                  </a>
                 </div>
                 <div
-                  class="service-one__col wow fadeInUp"
+                  class="service-one__col col-lg-3 col-md-4 col-sm-6 wow fadeInUp"
                   data-wow-duration="1500ms"
-                  data-wow-delay="400ms"
+                  data-wow-delay="000ms"
                 >
-                  <div class="service-one__single">
-                    <i class="zimed-icon-development"></i>
-                    <h3>Ongoing Support</h3>
+                  <div class="service-one__lottie-wrap" style="height: 120px; margin-bottom: 12px;">
+                    <lottie-player class="service-lottie" data-animation-index="4" background="transparent" speed="1" style="width: 100%; height: 120px;" loop autoplay></lottie-player>
                   </div>
+                  <a href="services.html#cloud" class="service-one__single service-one__link">
+                    <i class="zimed-icon-development"></i>
+                    <h3>Cloud Development</h3>
+                  </a>
+                </div>
+                <div
+                  class="service-one__col col-lg-3 col-md-4 col-sm-6 wow fadeInUp"
+                  data-wow-duration="1500ms"
+                  data-wow-delay="100ms"
+                >
+                  <div class="service-one__lottie-wrap" style="height: 120px; margin-bottom: 12px;">
+                    <lottie-player class="service-lottie" data-animation-index="5" background="transparent" speed="1" style="width: 100%; height: 120px;" loop autoplay></lottie-player>
+                  </div>
+                  <a href="services.html#consultancy" class="service-one__single service-one__link">
+                    <i class="zimed-icon-strategy"></i>
+                    <h3>Consultancy</h3>
+                  </a>
+                </div>
+                <div
+                  class="service-one__col col-lg-3 col-md-4 col-sm-6 wow fadeInUp"
+                  data-wow-duration="1500ms"
+                  data-wow-delay="200ms"
+                >
+                  <div class="service-one__lottie-wrap" style="height: 120px; margin-bottom: 12px;">
+                    <lottie-player class="service-lottie" data-animation-index="6" background="transparent" speed="1" style="width: 100%; height: 120px;" loop autoplay></lottie-player>
+                  </div>
+                  <a href="services.html#seo" class="service-one__single service-one__link">
+                    <i class="zimed-icon-training"></i>
+                    <h3>SEO &amp; Digital Marketing</h3>
+                  </a>
                 </div>
               </div>
             </div>
@@ -513,8 +575,8 @@
             <div class="container">
               <div class="block-title text-center">
                 <span class="block-title__bubbles"></span>
-                <p>Our Projects</p>
-                <h3>Last Projects</h3>
+                <p>Our Services</p>
+                <h3>What we offer</h3>
               </div>
               <div class="projects-carousel">
                 <button
@@ -544,12 +606,12 @@
                           </li>
                         </ul>
                         <h3>
-                          <a href="#"
+                          <a href="projects.html#project-1"
                             >Retail brand strategy and market launch</a
                           >
                         </h3>
-                        <a class="blog-one__link" href="#"
-                          ><i class="zimed-icon-right-arrow"></i
+                        <a class="blog-one__link" href="projects.html#project-1"
+                          >
                         ></a>
                       </div>
                     </div>
@@ -573,12 +635,12 @@
                           </li>
                         </ul>
                         <h3>
-                          <a href="#"
+                          <a href="projects.html#project-2"
                             >Operations and process redesign for tech startup</a
                           >
                         </h3>
-                        <a class="blog-one__link" href="#"
-                          ><i class="zimed-icon-right-arrow"></i
+                        <a class="blog-one__link" href="projects.html#project-2"
+                          > <i class="zimed-icon-right-arrow"></i
                         ></a>
                       </div>
                     </div>
@@ -602,12 +664,12 @@
                           </li>
                         </ul>
                         <h3>
-                          <a href="#"
+                          <a href="projects.html#project-3"
                             >Digital transformation and growth for logistics</a
                           >
                         </h3>
-                        <a class="blog-one__link" href="#"
-                          ><i class="zimed-icon-right-arrow"></i
+                        <a class="blog-one__link" href="projects.html#project-3"
+                          > <i class="zimed-icon-right-arrow"></i
                         ></a>
                       </div>
                     </div>
@@ -1231,8 +1293,8 @@
               <div class="container-fluid">
                 <div class="block-title text-center">
                   <span class="block-title__bubbles"></span>
-                  <p>Latest Projects</p>
-                  <h3>Our Latest Projects</h3>
+                  <p>Our Services</p>
+                  <h3>What We Offer</h3>
                 </div>
                 <div class="app-shot-one__carousel">
                   <div
@@ -1525,6 +1587,9 @@
                     ></span>
                   </div>
                 </div>
+                <p class="text-center mt-4">
+                  <a href="services.html" class="thm-btn">View all services</a>
+                </p>
               </div>
             </section>
           </div>
@@ -1722,10 +1787,10 @@
                               <a href="#">All Features</a>
                             </li>
                             <li>
-                              <a href="#">Our Services</a>
+                              <a href="services.html">Our Services</a>
                             </li>
                             <li>
-                              <a href="#">Latest Blog</a>
+                              <a href="projects.html">Our Projects</a>
                             </li>
                           </ul>
                           <ul class="list-unstyled">
@@ -1806,7 +1871,7 @@
                 <nav class="mobile-nav__container">
                   <ul class="one-page-scroll-menu main-nav__navigation-box">
                     <li class="current scrollToLink">
-                      <a href="#">Home</a>
+                      <a href="#banner">Home</a>
                     </li>
                     <li class="scrollToLink">
                       <a href="#features">Features</a>
@@ -1827,7 +1892,7 @@
                           <a href="#projects">Projects</a>
                         </li>
                         <li>
-                          <a href="#projects"></a>
+                          <a href="projects.html">View all projects</a>
                         </li>
                       </ul>
                     </li>
@@ -2173,12 +2238,65 @@
           if (!getServicesCarousel()) return;
           goToSlide(0);
           startAutoPlay();
+          var slides = wrapper.parentElement.querySelectorAll(".swiper-slide");
+          slides.forEach(function (slide) {
+            slide.style.cursor = "pointer";
+            slide.addEventListener("click", function () {
+              var idx = parseInt(
+                slide.getAttribute("data-swiper-slide-index"),
+                10
+              );
+              var href =
+                idx <= 2
+                  ? "projects.html#project-" + (idx + 1)
+                  : "projects.html";
+              window.location.href = href;
+            });
+          });
         }
 
         if (document.readyState === "loading") {
           document.addEventListener("DOMContentLoaded", initServicesCarousel);
         } else {
           initServicesCarousel();
+        }
+      })();
+
+      // Load hero Lottie from inline data (avoids CORS when opening via file://)
+      (function () {
+        function loadHeroLottie() {
+          var player = document.getElementById("hero-lottie");
+          if (player && window.HERO_ANIMATION_DATA) {
+            player.load(window.HERO_ANIMATION_DATA);
+            return;
+          }
+          setTimeout(loadHeroLottie, 50);
+        }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", loadHeroLottie);
+        } else {
+          loadHeroLottie();
+        }
+      })();
+      // Load service profile Lotties (Animation 1, Animation 2, Isometric cycle)
+      (function () {
+        function loadServiceLotties() {
+          if (!window.SERVICE_ANIMATIONS || window.SERVICE_ANIMATIONS.length < 7) {
+            setTimeout(loadServiceLotties, 50);
+            return;
+          }
+          var players = document.querySelectorAll(".service-lottie");
+          players.forEach(function (player) {
+            var idx = parseInt(player.getAttribute("data-animation-index"), 10);
+            if (!isNaN(idx) && window.SERVICE_ANIMATIONS[idx]) {
+              player.load(window.SERVICE_ANIMATIONS[idx]);
+            }
+          });
+        }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", loadServiceLotties);
+        } else {
+          loadServiceLotties();
         }
       })();
     </script>
