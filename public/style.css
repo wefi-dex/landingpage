@@ -1031,32 +1031,55 @@ h6 {
 	padding-right: 15px;
 	flex: 1 1 20%;
 	text-align: center;
+	margin-bottom: 30px;
+}
+
+/* Each service item as one card: Lottie + content */
+.service-one__col {
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+	border: 1px solid rgba(232, 232, 239, 0.8);
+	overflow: hidden;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-one__col:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 12px 40px rgba(74, 14, 143, 0.12);
+	border-color: rgba(74, 14, 143, 0.2);
+}
+
+.service-one__lottie-wrap {
+	height: 120px;
+	margin-bottom: 0;
+	padding: 16px 12px 0;
+	background: linear-gradient(180deg, rgba(248, 248, 252, 0.9) 0%, #fff 100%);
+	border-radius: 16px 16px 0 0;
 }
 
 .service-one__single {
-	margin-bottom: 30px;
-	padding-top: 40px;
-	padding-bottom: 40px;
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(232, 232, 239);
-	background-color: rgb(255, 255, 255);
-	box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.04);
+	margin-bottom: 0;
+	padding: 24px 20px 28px;
+	border: none;
+	background: transparent;
+	box-shadow: none;
 }
 
 .service-one__single h3 {
 	color: var(--thm-black);
-	font-size: 18px;
+	font-size: 17px;
 	font-weight: 600;
 	margin: 0;
+	line-height: 1.35;
 }
 
 .service-one__single i {
-	width: 111px;
-	height: 111px;
+	width: 64px;
+	height: 64px;
 	border-radius: 50%;
 	background-image: linear-gradient(90deg, #4a0e8f 0%, #b430a7 51%, #4a0e8f 100%);
-	font-size: 64px;
+	font-size: 32px;
 	color: #fff;
 	display: flex;
 	align-items: center;
@@ -1064,7 +1087,7 @@ h6 {
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 15px;
+	margin-bottom: 12px;
 	background-size: 200% auto;
 	transition: all 500ms ease;
 }
@@ -1091,6 +1114,14 @@ h6 {
 
 .service-one__col:nth-child(5) .service-one__single i {
 	background-image: linear-gradient(90deg, #03a631 0%, #d6c10f 51%, #03a631 100%);
+}
+
+.service-one__col:nth-child(6) .service-one__single i {
+	background-image: linear-gradient(90deg, #6b2d8a 0%, #b430a7 51%, #6b2d8a 100%);
+}
+
+.service-one__col:nth-child(7) .service-one__single i {
+	background-image: linear-gradient(90deg, #0d9488 0%, #14b8a6 51%, #0d9488 100%);
 }
 
 
