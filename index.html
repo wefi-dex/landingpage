@@ -67,6 +67,70 @@
         padding: 0;
         font: inherit;
       }
+      .projects-carousel {
+        position: relative;
+        padding: 0 56px;
+        margin: 40px 0 60px;
+      }
+      .projects-carousel__nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 48px;
+        height: 48px;
+        border: none;
+        background: rgba(74, 14, 143, 0.9);
+        color: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        transition: background 0.2s, transform 0.2s;
+      }
+      .projects-carousel__nav:hover {
+        background: #4a0e8f;
+        transform: translateY(-50%) scale(1.05);
+      }
+      .projects-carousel__nav--prev {
+        left: 0;
+      }
+      .projects-carousel__nav--next {
+        right: 0;
+      }
+      .projects-carousel__nav i {
+        font-size: 20px;
+      }
+      .projects-carousel__track {
+        display: flex;
+        gap: 30px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        padding: 30px 0;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .projects-carousel__track::-webkit-scrollbar {
+        display: none;
+      }
+      .projects-carousel__slide {
+        flex: 0 0 340px;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+      }
+      .projects-carousel__slide .blog-one__single {
+        margin-bottom: 0;
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+      }
+      .projects-carousel__slide.is-center .blog-one__single {
+        transform: scale(1.08);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        z-index: 2;
+        position: relative;
+      }
     </style>
   </head>
   <body>
@@ -449,100 +513,113 @@
             <div class="container">
               <div class="block-title text-center">
                 <span class="block-title__bubbles"></span>
-                <p>Our Services</p>
-                <h3>What We Offer</h3>
+                <p>Our Projects</p>
+                <h3>Last Projects</h3>
               </div>
-              <div class="row">
-                <div class="col-lg-4 wow fadeInLeft" data-wow-duration="1500ms">
-                  <div class="blog-one__single">
-                    <div class="blog-one__image">
-                      <img
-                        src="./public/blog-1-1.jpg"
-                        alt=""
-                        style="filter: blur(0px)"
-                      />
-                    </div>
-                    <div class="blog-one__content">
-                      <ul class="blog-one__meta list-unstyled">
-                        <li>
-                          <a href="#"><i class="far fa-folder"></i> Strategy</a>
-                        </li>
-                        <li>
-                          <a href="#">2024</a>
-                        </li>
-                      </ul>
-                      <h3>
-                        <a href="#"
-                          >Retail brand strategy and market launch</a
-                        >
-                      </h3>
-                      <a class="blog-one__link" href="#"
-                        ><i class="zimed-icon-right-arrow"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 wow fadeInUp" data-wow-duration="1500ms">
-                  <div class="blog-one__single">
-                    <div class="blog-one__image">
-                      <img
-                        src="./public/blog-1-2.jpg"
-                        alt=""
-                        style="filter: blur(0px)"
-                      />
-                    </div>
-                    <div class="blog-one__content">
-                      <ul class="blog-one__meta list-unstyled">
-                        <li>
-                          <a href="#"><i class="far fa-folder"></i> Operations</a>
-                        </li>
-                        <li>
-                          <a href="#">2024</a>
-                        </li>
-                      </ul>
-                      <h3>
-                        <a href="#"
-                          >Operations and process redesign for tech startup</a
-                        >
-                      </h3>
-                      <a class="blog-one__link" href="#"
-                        ><i class="zimed-icon-right-arrow"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="col-lg-4 wow fadeInRight"
-                  data-wow-duration="1500ms"
+              <div class="projects-carousel">
+                <button
+                  type="button"
+                  class="projects-carousel__nav projects-carousel__nav--prev"
+                  aria-label="Previous project"
                 >
-                  <div class="blog-one__single">
-                    <div class="blog-one__image">
-                      <img
-                        src="./public/blog-1-3.jpg"
-                        alt=""
-                        style="filter: blur(0px)"
-                      />
+                  <i class="zimed-icon-left-arrow"></i>
+                </button>
+                <div class="projects-carousel__track" tabindex="0">
+                  <div class="projects-carousel__slide">
+                    <div class="blog-one__single">
+                      <div class="blog-one__image">
+                        <img
+                          src="./public/blog-1-1.jpg"
+                          alt=""
+                          style="filter: blur(0px)"
+                        />
+                      </div>
+                      <div class="blog-one__content">
+                        <ul class="blog-one__meta list-unstyled">
+                          <li>
+                            <a href="#"><i class="far fa-folder"></i> Strategy</a>
+                          </li>
+                          <li>
+                            <a href="#">2024</a>
+                          </li>
+                        </ul>
+                        <h3>
+                          <a href="#"
+                            >Retail brand strategy and market launch</a
+                          >
+                        </h3>
+                        <a class="blog-one__link" href="#"
+                          ><i class="zimed-icon-right-arrow"></i
+                        ></a>
+                      </div>
                     </div>
-                    <div class="blog-one__content">
-                      <ul class="blog-one__meta list-unstyled">
-                        <li>
-                          <a href="#"><i class="far fa-folder"></i> Digital</a>
-                        </li>
-                        <li>
-                          <a href="#">2024</a>
-                        </li>
-                      </ul>
-                      <h3>
-                        <a href="#"
-                          >Digital transformation and growth for logistics</a
-                        >
-                      </h3>
-                      <a class="blog-one__link" href="#"
-                        ><i class="zimed-icon-right-arrow"></i
-                      ></a>
+                  </div>
+                  <div class="projects-carousel__slide">
+                    <div class="blog-one__single">
+                      <div class="blog-one__image">
+                        <img
+                          src="./public/blog-1-2.jpg"
+                          alt=""
+                          style="filter: blur(0px)"
+                        />
+                      </div>
+                      <div class="blog-one__content">
+                        <ul class="blog-one__meta list-unstyled">
+                          <li>
+                            <a href="#"><i class="far fa-folder"></i> Operations</a>
+                          </li>
+                          <li>
+                            <a href="#">2024</a>
+                          </li>
+                        </ul>
+                        <h3>
+                          <a href="#"
+                            >Operations and process redesign for tech startup</a
+                          >
+                        </h3>
+                        <a class="blog-one__link" href="#"
+                          ><i class="zimed-icon-right-arrow"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="projects-carousel__slide">
+                    <div class="blog-one__single">
+                      <div class="blog-one__image">
+                        <img
+                          src="./public/blog-1-3.jpg"
+                          alt=""
+                          style="filter: blur(0px)"
+                        />
+                      </div>
+                      <div class="blog-one__content">
+                        <ul class="blog-one__meta list-unstyled">
+                          <li>
+                            <a href="#"><i class="far fa-folder"></i> Digital</a>
+                          </li>
+                          <li>
+                            <a href="#">2024</a>
+                          </li>
+                        </ul>
+                        <h3>
+                          <a href="#"
+                            >Digital transformation and growth for logistics</a
+                          >
+                        </h3>
+                        <a class="blog-one__link" href="#"
+                          ><i class="zimed-icon-right-arrow"></i
+                        ></a>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <button
+                  type="button"
+                  class="projects-carousel__nav projects-carousel__nav--next"
+                  aria-label="Next project"
+                >
+                  <i class="zimed-icon-right-arrow"></i>
+                </button>
               </div>
             </div>
           </section>
@@ -1162,11 +1239,8 @@
                     class="swiper-container swiper-container-initialized swiper-container-horizontal"
                   >
                     <div
-                      class="swiper-wrapper"
-                      style="
-                        transition-duration: 0ms;
-                        transform: translate3d(-3190px, 0px, 0px);
-                      "
+                      class="swiper-wrapper services-carousel__wrapper"
+                      style="transition-duration: 400ms; transform: translate3d(0px, 0px, 0px)"
                     >
                       <div
                         class="swiper-slide item swiper-slide-duplicate"
@@ -1885,40 +1959,227 @@
     </script>
     <script>
       (function () {
-        function wireTestimonialButtons() {
-          var container = document.querySelector(
-            ".testimonials-slider .swiper-container"
+        var SLIDE_WIDTH = 570;
+        var currentIndex = 0;
+        var totalSlides = 0;
+        var wrapper = null;
+        var slides = [];
+        var pagerItems = [];
+
+        function getTestimonialElements() {
+          wrapper = document.querySelector(
+            ".testimonials-slider .swiper-wrapper"
           );
+          if (!wrapper) return false;
+          slides = [].slice.call(
+            wrapper.querySelectorAll(".swiper-slide")
+          );
+          pagerItems = [].slice.call(
+            document.querySelectorAll("#testimonials-slider-pager .pager-item")
+          );
+          totalSlides = slides.length;
+          return totalSlides > 0;
+        }
+
+        function goToSlide(index) {
+          if (index < 0 || index >= totalSlides) return;
+          currentIndex = index;
+
+          wrapper.style.transitionDuration = "300ms";
+          wrapper.style.transform =
+            "translate3d(-" + index * SLIDE_WIDTH + "px, 0, 0)";
+
+          slides.forEach(function (slide, i) {
+            slide.classList.remove(
+              "swiper-slide-active",
+              "swiper-slide-prev",
+              "swiper-slide-next"
+            );
+            if (i === index) slide.classList.add("swiper-slide-active");
+            else if (i === index - 1) slide.classList.add("swiper-slide-prev");
+            else if (i === index + 1) slide.classList.add("swiper-slide-next");
+          });
+
+          pagerItems.forEach(function (item) {
+            var idx = item.getAttribute("data-slide-index");
+            if (idx !== null && parseInt(idx, 10) === index) {
+              item.classList.add("active");
+            } else {
+              item.classList.remove("active");
+            }
+          });
+        }
+
+        function initTestimonialSlider() {
+          if (!getTestimonialElements()) return;
+
           var prevBtn = document.querySelector(".testimonial-prev");
           var nextBtn = document.querySelector(".testimonial-next");
-          if (!container || !prevBtn || !nextBtn) return false;
-          var swiper =
-            container.swiper ||
-            container.__swiper__ ||
-            container.swiperInstance;
-          if (!swiper || typeof swiper.slidePrev !== "function") return false;
-          prevBtn.addEventListener("click", function () {
-            swiper.slidePrev();
+
+          if (prevBtn) {
+            prevBtn.addEventListener("click", function () {
+              goToSlide(
+                (currentIndex - 1 + totalSlides) % totalSlides
+              );
+            });
+          }
+          if (nextBtn) {
+            nextBtn.addEventListener("click", function () {
+              goToSlide((currentIndex + 1) % totalSlides);
+            });
+          }
+
+          pagerItems.forEach(function (item) {
+            item.addEventListener("click", function (e) {
+              e.preventDefault();
+              var idx = item.getAttribute("data-slide-index");
+              if (idx !== null) goToSlide(parseInt(idx, 10));
+            });
           });
-          nextBtn.addEventListener("click", function () {
-            swiper.slideNext();
-          });
-          return true;
+
+          goToSlide(0);
         }
-        function tryWire() {
-          if (wireTestimonialButtons()) return;
-          var attempts = 0;
-          var t = setInterval(function () {
-            attempts++;
-            if (wireTestimonialButtons() || attempts > 20) clearInterval(t);
-          }, 200);
-        }
+
         if (document.readyState === "loading") {
-          document.addEventListener("DOMContentLoaded", tryWire);
+          document.addEventListener("DOMContentLoaded", initTestimonialSlider);
         } else {
-          tryWire();
+          initTestimonialSlider();
         }
-        window.addEventListener("load", tryWire);
+      })();
+    </script>
+    <script>
+      (function () {
+        var SLIDE_WIDTH = 370;
+        var track = null;
+        var slides = [];
+        var prevBtn = null;
+        var nextBtn = null;
+
+        function getProjectsCarousel() {
+          track = document.querySelector("#projects .projects-carousel__track");
+          if (!track) return false;
+          slides = [].slice.call(
+            track.querySelectorAll(".projects-carousel__slide")
+          );
+          prevBtn = document.querySelector(
+            "#projects .projects-carousel__nav--prev"
+          );
+          nextBtn = document.querySelector(
+            "#projects .projects-carousel__nav--next"
+          );
+          return slides.length > 0;
+        }
+
+        function updateCenter() {
+          if (!track || slides.length === 0) return;
+          var rect = track.getBoundingClientRect();
+          var centerX = rect.left + rect.width / 2;
+          var bestIndex = 0;
+          var bestDist = Infinity;
+          slides.forEach(function (slide, i) {
+            var r = slide.getBoundingClientRect();
+            var slideCenter = r.left + r.width / 2;
+            var dist = Math.abs(slideCenter - centerX);
+            if (dist < bestDist) {
+              bestDist = dist;
+              bestIndex = i;
+            }
+          });
+          slides.forEach(function (slide, i) {
+            if (i === bestIndex) slide.classList.add("is-center");
+            else slide.classList.remove("is-center");
+          });
+        }
+
+        function scrollToIndex(index) {
+          if (!track) return;
+          var target = index * SLIDE_WIDTH;
+          track.scrollTo({ left: target, behavior: "smooth" });
+        }
+
+        function goPrev() {
+          if (!track) return;
+          var current = Math.round(track.scrollLeft / SLIDE_WIDTH);
+          var next = Math.max(0, current - 1);
+          scrollToIndex(next);
+        }
+
+        function goNext() {
+          if (!track) return;
+          var current = Math.round(track.scrollLeft / SLIDE_WIDTH);
+          var maxIndex = slides.length - 1;
+          var next = Math.min(maxIndex, current + 1);
+          scrollToIndex(next);
+        }
+
+        function initProjectsCarousel() {
+          if (!getProjectsCarousel()) return;
+
+          if (prevBtn) {
+            prevBtn.addEventListener("click", goPrev);
+          }
+          if (nextBtn) {
+            nextBtn.addEventListener("click", goNext);
+          }
+
+          track.addEventListener("scroll", function () {
+            updateCenter();
+          });
+
+          updateCenter();
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", initProjectsCarousel);
+        } else {
+          initProjectsCarousel();
+        }
+      })();
+    </script>
+    <script>
+      (function () {
+        var SLIDE_STEP = 319;
+        var NUM_SLIDES = 5;
+        var INTERVAL_MS = 3500;
+        var currentIndex = 0;
+        var wrapper = null;
+        var timer = null;
+
+        function getServicesCarousel() {
+          wrapper = document.querySelector(
+            "#services .swiper-wrapper.services-carousel__wrapper"
+          );
+          return !!wrapper;
+        }
+
+        function goToSlide(index) {
+          if (!wrapper) return;
+          currentIndex = index >= NUM_SLIDES ? 0 : index < 0 ? NUM_SLIDES - 1 : index;
+          wrapper.style.transitionDuration = "400ms";
+          wrapper.style.transform =
+            "translate3d(-" + currentIndex * SLIDE_STEP + "px, 0px, 0px)";
+        }
+
+        function next() {
+          goToSlide(currentIndex + 1);
+        }
+
+        function startAutoPlay() {
+          if (timer) clearInterval(timer);
+          timer = setInterval(next, INTERVAL_MS);
+        }
+
+        function initServicesCarousel() {
+          if (!getServicesCarousel()) return;
+          goToSlide(0);
+          startAutoPlay();
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", initServicesCarousel);
+        } else {
+          initServicesCarousel();
+        }
       })();
     </script>
   </body>
