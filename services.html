@@ -45,45 +45,134 @@
       }
       .subpage .subpage-header .main-nav__nav-links a:hover { opacity: 0.9; text-decoration: underline; }
       .subpage .subpage-hero {
-        padding: 60px 15px 40px;
+        padding: 56px 24px 48px;
         text-align: center;
-        background: #f8f9fa;
+        background: linear-gradient(135deg, #4a0e8f 0%, #5c1a9e 40%, #6b2d8a 100%);
+        position: relative;
+        overflow: hidden;
       }
-      .subpage .subpage-hero h1 { font-size: 2rem; margin: 0 0 12px; color: #222; }
-      .subpage .subpage-hero p { color: #666; max-width: 560px; margin: 0 auto; font-size: 1.05rem; }
-      .subpage .detail-list { padding: 48px 15px 80px; max-width: 1200px; margin: 0 auto; }
-      .subpage .back-link { display: inline-block; margin-bottom: 24px; color: #4a0e8f; text-decoration: none; font-weight: 500; }
-      .subpage .back-link:hover { text-decoration: underline; }
+      .subpage .subpage-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.3) 0%, transparent 50%);
+        pointer-events: none;
+      }
+      .subpage .subpage-hero .container { position: relative; z-index: 1; }
+      .subpage .subpage-hero__animation { margin-bottom: 20px; }
+      .subpage .subpage-hero__animation lottie-player { filter: drop-shadow(0 8px 24px rgba(0,0,0,0.2)); }
+      .subpage .subpage-hero h1 {
+        font-size: 2.25rem;
+        font-weight: 800;
+        margin: 0 0 14px;
+        color: #fff;
+        letter-spacing: -0.03em;
+        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+      }
+      .subpage .subpage-hero h1::after {
+        content: "";
+        display: block;
+        width: 56px;
+        height: 4px;
+        margin: 16px auto 0;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+        border-radius: 2px;
+      }
+      .subpage .subpage-hero p {
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 520px;
+        margin: 0 auto;
+        font-size: 1.05rem;
+        line-height: 1.6;
+      }
+      .subpage .detail-list {
+        padding: 48px 15px 80px;
+        background: linear-gradient(180deg, #f8f9fc 0%, #eef0f5 100%);
+        position: relative;
+      }
+      .subpage .detail-list .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+      .subpage .detail-list::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(74, 14, 143, 0.12), transparent);
+      }
+      .subpage .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 28px;
+        color: #4a0e8f;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: color 0.2s, transform 0.2s;
+      }
+      .subpage .back-link:hover { color: #6b2d8a; transform: translateX(-4px); }
+      .subpage .detail-list .section-label {
+        display: block;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #888;
+        margin-bottom: 8px;
+      }
       .subpage .detail-item {
-        margin-bottom: 32px;
-        padding: 28px 24px 32px;
-        border: 1px solid #eaeaea;
-        border-radius: 12px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 28px;
+        margin-bottom: 28px;
+        padding: 28px 28px 32px;
+        border: none;
+        border-radius: 14px;
+        border-left: 4px solid #4a0e8f;
         background: #fff;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-        transition: box-shadow 0.25s ease, border-color 0.25s ease;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04), 0 8px 32px rgba(74, 14, 143, 0.06);
+        transition: box-shadow 0.3s ease, transform 0.3s ease, border-left-color 0.3s ease;
+      }
+      @media (max-width: 767px) {
+        .subpage .detail-item { flex-direction: column; gap: 20px; padding: 24px 20px; }
       }
       .subpage .detail-item:hover {
-        box-shadow: 0 8px 24px rgba(74, 14, 143, 0.08);
-        border-color: rgba(74, 14, 143, 0.15);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06), 0 16px 48px rgba(74, 14, 143, 0.12);
+        transform: translateY(-2px);
+        border-left-color: #6b2d8a;
       }
+      .subpage .detail-item:nth-child(even) { border-left-color: #8b5cf6; }
+      .subpage .detail-item:nth-child(even):hover { border-left-color: #a78bfa; }
       .subpage .detail-item:last-child { margin-bottom: 0; }
+      .subpage .detail-item__media {
+        flex: 0 0 260px;
+        min-width: 0;
+      }
+      @media (max-width: 767px) {
+        .subpage .detail-item__media { flex: 0 0 auto; width: 100%; max-width: 280px; margin: 0 auto; }
+      }
+      .subpage .detail-item__body { flex: 1; min-width: 0; }
       .subpage .detail-item h2 {
         font-size: 1.5rem;
         margin: 0 0 12px;
         display: flex;
         align-items: center;
         gap: 10px;
-        color: #222;
+        color: #1a1a2e;
       }
       .subpage .detail-item h2 i { color: #4a0e8f; font-size: 1.25rem; }
-      .subpage .detail-item .lead { color: #555; margin: 0 0 16px; line-height: 1.6; font-size: 1rem; }
-      .subpage .detail-item ul { margin: 0; padding-left: 20px; color: #555; line-height: 1.8; }
+      .subpage .detail-item .lead { color: #5a5a6e; margin: 0 0 16px; line-height: 1.6; font-size: 1rem; }
+      .subpage .detail-item ul { margin: 0; padding-left: 20px; color: #5a5a6e; line-height: 1.8; }
       .subpage .detail-item__lottie {
-        border-radius: 10px;
+        width: 100%;
+        height: 200px;
+        border-radius: 12px;
         overflow: hidden;
-        background: linear-gradient(180deg, #f8f9fc 0%, #fff 100%);
-        padding: 8px;
+        background: linear-gradient(135deg, rgba(74, 14, 143, 0.06) 0%, rgba(139, 92, 246, 0.04) 100%);
+        padding: 10px;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 4px 12px rgba(74, 14, 143, 0.08);
       }
       .subpage .site-footer {
         margin-top: auto;
@@ -135,103 +224,132 @@
       <section class="detail-list">
         <div class="container">
           <a href="index.html#features" class="back-link">&larr; Back to Home</a>
+          <span class="section-label">What we offer</span>
 
           <div class="detail-item" id="ai">
-            <div class="detail-item__lottie" style="max-width: 200px; height: 140px; margin-bottom: 16px;">
-              <lottie-player class="service-lottie" data-animation-index="0" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+            <div class="detail-item__media">
+              <div class="detail-item__lottie">
+                <lottie-player class="service-lottie" data-animation-index="0" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+              </div>
             </div>
-            <h2><i class="zimed-icon-computer-graphic"></i> Artificial Intelligence &amp; Machine Learning</h2>
-            <p class="lead">We design and implement AI and ML solutions to automate decisions, improve products, and unlock value from your data.</p>
-            <ul>
-              <li>Custom ML models and pipelines</li>
-              <li>Natural language processing and computer vision</li>
-              <li>Integration with existing systems</li>
-              <li>Training, deployment, and ongoing optimization</li>
-            </ul>
+            <div class="detail-item__body">
+              <h2><i class="zimed-icon-computer-graphic"></i> Artificial Intelligence &amp; Machine Learning</h2>
+              <p class="lead">We design and implement AI and ML solutions to automate decisions, improve products, and unlock value from your data.</p>
+              <ul>
+                <li>Custom ML models and pipelines</li>
+                <li>Natural language processing and computer vision</li>
+                <li>Integration with existing systems</li>
+                <li>Training, deployment, and ongoing optimization</li>
+              </ul>
+            </div>
           </div>
 
           <div class="detail-item" id="crm">
-            <div class="detail-item__lottie" style="max-width: 200px; height: 140px; margin-bottom: 16px;">
-              <lottie-player class="service-lottie" data-animation-index="1" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+            <div class="detail-item__media">
+              <div class="detail-item__lottie">
+                <lottie-player class="service-lottie" data-animation-index="1" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+              </div>
             </div>
-            <h2><i class="zimed-icon-development1"></i> CRM &amp; Automation</h2>
-            <p class="lead">We help you choose, implement, and automate CRM and business workflows so sales and operations run smoothly.</p>
-            <ul>
-              <li>CRM selection and implementation</li>
-              <li>Sales and marketing automation</li>
-              <li>Workflow design and integration</li>
-              <li>Reporting and analytics</li>
-            </ul>
+            <div class="detail-item__body">
+              <h2><i class="zimed-icon-development1"></i> CRM &amp; Automation</h2>
+              <p class="lead">We help you choose, implement, and automate CRM and business workflows so sales and operations run smoothly.</p>
+              <ul>
+                <li>CRM selection and implementation</li>
+                <li>Sales and marketing automation</li>
+                <li>Workflow design and integration</li>
+                <li>Reporting and analytics</li>
+              </ul>
+            </div>
           </div>
 
           <div class="detail-item" id="web3">
-            <div class="detail-item__lottie" style="max-width: 200px; height: 140px; margin-bottom: 16px;">
-              <lottie-player class="service-lottie" data-animation-index="2" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+            <div class="detail-item__media">
+              <div class="detail-item__lottie">
+                <lottie-player class="service-lottie" data-animation-index="2" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+              </div>
             </div>
-            <h2><i class="zimed-icon-development"></i> Web2 &amp; Web3 &amp; Blockchain Development</h2>
-            <p class="lead">From traditional web apps to Web3 and blockchain, we build secure, scalable platforms and smart contracts.</p>
-            <ul>
-              <li>Web and API development (Web2)</li>
-              <li>Smart contracts and DApps (Web3)</li>
-              <li>Blockchain integration and tokenization</li>
-              <li>Security audits and best practices</li>
-            </ul>
+            <div class="detail-item__body">
+              <h2><i class="zimed-icon-development"></i> Web2 &amp; Web3 &amp; Blockchain Development</h2>
+              <p class="lead">From traditional web apps to Web3 and blockchain, we build secure, scalable platforms and smart contracts.</p>
+              <ul>
+                <li>Web and API development (Web2)</li>
+                <li>Smart contracts and DApps (Web3)</li>
+                <li>Blockchain integration and tokenization</li>
+                <li>Security audits and best practices</li>
+              </ul>
+            </div>
           </div>
 
           <div class="detail-item" id="mobile">
-            <div class="detail-item__lottie" style="max-width: 200px; height: 140px; margin-bottom: 16px;">
-              <lottie-player class="service-lottie" data-animation-index="3" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+            <div class="detail-item__media">
+              <div class="detail-item__lottie">
+                <lottie-player class="service-lottie" data-animation-index="3" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+              </div>
             </div>
-            <h2><i class="zimed-icon-responsive"></i> Mobile App Development</h2>
-            <p class="lead">We build native and cross-platform mobile apps that deliver a great user experience on iOS and Android.</p>
-            <ul>
-              <li>iOS and Android native or cross-platform</li>
-              <li>UI/UX design and prototyping</li>
-              <li>Backend and API integration</li>
-              <li>App store submission and updates</li>
-            </ul>
+            <div class="detail-item__body">
+              <h2><i class="zimed-icon-responsive"></i> Mobile App Development</h2>
+              <p class="lead">We build native and cross-platform mobile apps that deliver a great user experience on iOS and Android.</p>
+              <ul>
+                <li>iOS and Android native or cross-platform</li>
+                <li>UI/UX design and prototyping</li>
+                <li>Backend and API integration</li>
+                <li>App store submission and updates</li>
+              </ul>
+            </div>
           </div>
 
           <div class="detail-item" id="cloud">
-            <div class="detail-item__lottie" style="max-width: 200px; height: 140px; margin-bottom: 16px;">
-              <lottie-player class="service-lottie" data-animation-index="4" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+            <div class="detail-item__media">
+              <div class="detail-item__lottie">
+                <lottie-player class="service-lottie" data-animation-index="4" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+              </div>
             </div>
-            <h2><i class="zimed-icon-development"></i> Cloud Development</h2>
-            <p class="lead">We design and build cloud-native solutions on AWS, Azure, or GCP for scalability, security, and cost efficiency.</p>
-            <ul>
-              <li>Cloud architecture and migration</li>
-              <li>Serverless and containerized workloads</li>
-              <li>DevOps, CI/CD, and infrastructure as code</li>
-              <li>Monitoring and cost optimization</li>
-            </ul>
+            <div class="detail-item__body">
+              <h2><i class="zimed-icon-development"></i> Cloud Development</h2>
+              <p class="lead">We design and build cloud-native solutions on AWS, Azure, or GCP for scalability, security, and cost efficiency.</p>
+              <ul>
+                <li>Cloud architecture and migration</li>
+                <li>Serverless and containerized workloads</li>
+                <li>DevOps, CI/CD, and infrastructure as code</li>
+                <li>Monitoring and cost optimization</li>
+              </ul>
+            </div>
           </div>
 
           <div class="detail-item" id="consultancy">
-            <div class="detail-item__lottie" style="max-width: 200px; height: 140px; margin-bottom: 16px;">
-              <lottie-player class="service-lottie" data-animation-index="5" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+            <div class="detail-item__media">
+              <div class="detail-item__lottie">
+                <lottie-player class="service-lottie" data-animation-index="5" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+              </div>
             </div>
-            <h2><i class="zimed-icon-strategy"></i> Consultancy</h2>
-            <p class="lead">We provide technical and business consultancy to help you choose the right technology, roadmap, and partners.</p>
-            <ul>
-              <li>Technology strategy and roadmaps</li>
-              <li>Vendor selection and due diligence</li>
-              <li>Architecture and process reviews</li>
-              <li>Ad-hoc advisory and workshops</li>
-            </ul>
+            <div class="detail-item__body">
+              <h2><i class="zimed-icon-strategy"></i> Consultancy</h2>
+              <p class="lead">We provide technical and business consultancy to help you choose the right technology, roadmap, and partners.</p>
+              <ul>
+                <li>Technology strategy and roadmaps</li>
+                <li>Vendor selection and due diligence</li>
+                <li>Architecture and process reviews</li>
+                <li>Ad-hoc advisory and workshops</li>
+              </ul>
+            </div>
           </div>
 
           <div class="detail-item" id="seo">
-            <div class="detail-item__lottie" style="max-width: 200px; height: 140px; margin-bottom: 16px;">
-              <lottie-player class="service-lottie" data-animation-index="6" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+            <div class="detail-item__media">
+              <div class="detail-item__lottie">
+                <lottie-player class="service-lottie" data-animation-index="6" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+              </div>
             </div>
-            <h2><i class="zimed-icon-training"></i> SEO &amp; Digital Marketing</h2>
-            <p class="lead">We improve your visibility and reach through SEO, content, and digital marketing so you attract and convert more customers.</p>
-            <ul>
-              <li>SEO audits, strategy, and implementation</li>
-              <li>Content strategy and creation</li>
-              <li>Paid campaigns and social media</li>
-              <li>Analytics and conversion optimization</li>
-            </ul>
+            <div class="detail-item__body">
+              <h2><i class="zimed-icon-training"></i> SEO &amp; Digital Marketing</h2>
+              <p class="lead">We improve your visibility and reach through SEO, content, and digital marketing so you attract and convert more customers.</p>
+              <ul>
+                <li>SEO audits, strategy, and implementation</li>
+                <li>Content strategy and creation</li>
+                <li>Paid campaigns and social media</li>
+                <li>Analytics and conversion optimization</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
