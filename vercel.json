@@ -1,5 +1,13 @@
 {
+  "framework": null,
   "headers": [
+    {
+      "source": "/",
+      "headers": [
+        { "key": "Content-Type", "value": "text/html; charset=utf-8" },
+        { "key": "Content-Disposition", "value": "inline" }
+      ]
+    },
     {
       "source": "/index.html",
       "headers": [
@@ -16,6 +24,6 @@
     }
   ],
   "rewrites": [
-    { "source": "/", "destination": "/index.html" }
+    { "source": "/", "destination": "/api/index" }
   ]
 }
