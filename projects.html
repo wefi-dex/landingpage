@@ -42,41 +42,242 @@
       }
       .subpage .subpage-header .main-nav__nav-links a:hover { opacity: 0.9; text-decoration: underline; }
       .subpage .subpage-hero {
-        padding: 60px 15px 40px;
+        padding: 56px 24px 48px;
         text-align: center;
-        background: #f8f9fa;
+        background: linear-gradient(135deg, #4a0e8f 0%, #5c1a9e 35%, #6b2d8a 70%, #2d1b4e 100%);
+        position: relative;
+        overflow: hidden;
       }
-      .subpage .subpage-hero h1 { font-size: 2rem; margin: 0 0 12px; color: #222; }
-      .subpage .subpage-hero p { color: #666; max-width: 560px; margin: 0 auto; font-size: 1.05rem; }
-      .subpage .detail-list { padding: 48px 15px 80px; max-width: 1200px; margin: 0 auto; }
-      .subpage .back-link { display: inline-block; margin-bottom: 24px; color: #4a0e8f; text-decoration: none; font-weight: 500; }
-      .subpage .back-link:hover { text-decoration: underline; }
+      .subpage .subpage-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.25) 0%, transparent 50%),
+                    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(196, 38, 211, 0.12) 0%, transparent 50%);
+        pointer-events: none;
+      }
+      .subpage .subpage-hero .container { position: relative; z-index: 1; }
+      .subpage .subpage-hero h1 {
+        font-size: 2.25rem;
+        font-weight: 800;
+        margin: 0 0 14px;
+        color: #fff;
+        letter-spacing: -0.03em;
+        line-height: 1.2;
+        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+      }
+      .subpage .subpage-hero h1::after {
+        content: "";
+        display: block;
+        width: 48px;
+        height: 4px;
+        margin: 16px auto 0;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+        border-radius: 2px;
+      }
+      .subpage .subpage-hero p {
+        color: rgba(255, 255, 255, 0.88);
+        max-width: 520px;
+        margin: 0 auto;
+        font-size: 1.05rem;
+        line-height: 1.6;
+      }
+      .subpage .detail-list { padding: 48px 15px 80px; max-width: 1200px; margin: 0 auto; background: linear-gradient(180deg, #f8f9fc 0%, #eef0f5 100%); }
+      @media (min-width: 1200px) {
+        .subpage .detail-list { max-width: 1440px; padding-left: 24px; padding-right: 24px; }
+        .subpage .detail-list .container {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
+          max-width: none;
+        }
+        .subpage .detail-list .container > .back-link { grid-column: 1 / -1; }
+        .subpage .detail-list .container > .detail-item { margin-bottom: 0; }
+      }
+      .subpage .back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 28px; color: #4a0e8f; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s, transform 0.2s; }
+      .subpage .back-link:hover { color: #6b2d8a; transform: translateX(-4px); }
       .subpage .detail-item {
-        margin-bottom: 32px;
-        padding: 28px 24px 32px;
-        border: 1px solid #eaeaea;
-        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 28px;
+        padding: 0;
+        border-radius: 14px;
         background: #fff;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-        transition: box-shadow 0.25s ease, border-color 0.25s ease;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04), 0 8px 32px rgba(74, 14, 143, 0.06);
+        overflow: hidden;
+        transition: box-shadow 0.35s ease, transform 0.35s ease;
       }
       .subpage .detail-item:hover {
-        box-shadow: 0 8px 24px rgba(74, 14, 143, 0.08);
-        border-color: rgba(74, 14, 143, 0.15);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06), 0 16px 48px rgba(74, 14, 143, 0.12);
+        transform: translateY(-2px);
+      }
+      /* Imageless project items: same card, subtle flat style (no lift, soft bg) */
+      .subpage .detail-item:not(:has(.detail-item__hero)):not(:has(.project-snapshots)) {
+        background: #f8f9fa;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      }
+      .subpage .detail-item:not(:has(.detail-item__hero)):not(:has(.project-snapshots)):hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        transform: none;
       }
       .subpage .detail-item:last-child { margin-bottom: 0; }
-      .subpage .detail-item .meta { color: #888; margin: 0 0 8px; font-size: 0.9rem; }
-      .subpage .detail-item h2 { font-size: 1.5rem; margin: 0 0 16px; color: #222; }
-      .subpage .detail-item .lead { color: #555; margin: 0 0 12px; line-height: 1.6; font-size: 1rem; }
-      .subpage .detail-item p { color: #555; line-height: 1.8; margin: 0 0 12px; }
-      .subpage .detail-item .skills { font-size: 0.9rem; color: #6b2d8a; margin: 12px 0 8px; font-weight: 500; }
-      .subpage .detail-item .ref { font-size: 0.9rem; margin-top: 8px; }
-      .subpage .detail-item .ref a { color: #4a0e8f; text-decoration: none; }
-      .subpage .detail-item .ref a:hover { text-decoration: underline; }
-      .subpage .detail-item img { max-width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px; display: block; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06); }
-      .subpage .project-snapshots { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 12px; }
-      .subpage .project-snapshots img { max-width: 100%; width: 100%; margin-bottom: 0; }
-      @media (min-width: 768px) { .subpage .project-snapshots img { max-width: calc(50% - 8px); width: calc(50% - 8px); } }
+      .subpage .detail-item {
+        padding: 0 0 24px 0;
+      }
+      .subpage .detail-item__hero {
+        display: block; width: 100%; aspect-ratio: 16/9;
+        overflow: hidden; cursor: pointer; position: relative;
+        border-radius: 14px 14px 0 0; margin-bottom: 0;
+        background: linear-gradient(135deg, #f0eef5 0%, #e8e6ef 100%);
+      }
+      .subpage .detail-item__hero img {
+        width: 100%; height: 100%; object-fit: cover;
+        display: block; transition: transform 0.4s ease;
+      }
+      .subpage .detail-item__hero:hover img { transform: scale(1.03); }
+      .subpage .detail-item__hero::after {
+        content: ""; position: absolute; inset: 0;
+        background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.15) 100%);
+        pointer-events: none;
+      }
+      .subpage .detail-item:has(.detail-item__hero) > h2 { padding-top: 20px; }
+      .subpage .detail-item > h2,
+      .subpage .detail-item > .lead,
+      .subpage .detail-item > .skills,
+      .subpage .detail-item > p { padding-left: 24px; padding-right: 24px; }
+      .subpage .detail-item:not(:has(.detail-item__hero)) { padding-top: 28px; }
+      .subpage .detail-item { padding-left: 24px; padding-right: 24px; padding-bottom: 20px; }
+      .subpage .detail-item h2 {
+        font-size: 1.15rem; margin: 0 0 10px; color: #1a1a2e;
+        font-weight: 700; letter-spacing: -0.02em; line-height: 1.3;
+      }
+      .subpage .detail-item h2 a {
+        color: #4a0e8f;
+        text-decoration: underline;
+        text-decoration-style: dotted;
+        text-underline-offset: 4px;
+        transition: color 0.2s, text-decoration-color 0.2s, text-decoration-style 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .subpage .detail-item h2 a::after {
+        content: "\f35d";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 0.65em;
+        opacity: 0.85;
+      }
+      .subpage .detail-item h2 a:hover {
+        color: #6b2d8a;
+        text-decoration-style: solid;
+      }
+      .subpage .detail-item .lead { color: #5a5a6e; margin: 0 0 12px; line-height: 1.4; font-size: 0.9rem; max-width: 72ch; }
+      .subpage .detail-item p { color: #5a5a6e; line-height: 1.45; margin: 0 0 8px; font-size: 0.875rem; }
+      .subpage .detail-item .skills {
+        order: 10;
+        margin: 12px 12px 0;
+        margin-top: auto;
+        font-size: 0.75rem; font-weight: 600; color: #5a5a6e;
+        line-height: 1.6;
+        padding: 12px 12px 10px; border-radius: 10px;
+        background: linear-gradient(135deg, rgba(74, 14, 143, 0.06) 0%, rgba(196, 38, 211, 0.04) 100%);
+      }
+      .subpage .detail-item .meta { color: #888; margin: 0 0 6px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+      .subpage .detail-item .meta:has(+ .project-snapshots) { margin-top: 20px; margin-bottom: 8px; color: #5a5a6e; font-size: 0.85rem; text-transform: none; letter-spacing: 0; }
+      .subpage .detail-item:has(.detail-item__hero) .meta:has(+ .project-snapshots),
+      .subpage .detail-item:has(.detail-item__hero) .project-snapshots { display: none; }
+      .subpage .detail-item .meta + .project-snapshots {
+        margin-left: -24px; margin-right: -24px; margin-bottom: -20px; margin-top: 4px;
+        padding: 16px 24px 24px; background: #f6f7f9;
+        border-top: 1px solid #e8e9ec;
+      }
+      .subpage .project-snapshots {
+        display: flex; flex-wrap: nowrap; gap: 16px; margin-top: 0;
+        overflow-x: auto; overflow-y: hidden;
+        scroll-snap-type: x mandatory; scroll-behavior: smooth;
+        padding-bottom: 4px; -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; -ms-overflow-style: none;
+      }
+      .subpage .project-snapshots::-webkit-scrollbar { display: none; }
+      .subpage .project-snapshots .snapshot-slide {
+        flex: 0 0 120px; scroll-snap-align: center;
+        border-radius: 8px; overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        transition: flex 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+      }
+      .subpage .project-snapshots .snapshot-slide.is-focused {
+        flex: 0 0 180px;
+        box-shadow: 0 8px 24px rgba(74, 14, 143, 0.18);
+        transform: scale(1.02);
+      }
+      .subpage .project-snapshots .snapshot-slide img {
+        width: 100%; height: 90px; margin: 0; display: block;
+        object-fit: cover; border-radius: 8px;
+        transition: height 0.35s ease;
+      }
+      .subpage .project-snapshots .snapshot-slide.is-focused img { height: 120px; }
+      .subpage .project-snapshots .snapshot-slide:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 28px rgba(74, 14, 143, 0.2);
+      }
+      .subpage .project-snapshots .snapshot-slide.is-focused:hover {
+        transform: scale(1.06);
+        box-shadow: 0 14px 36px rgba(74, 14, 143, 0.25);
+      }
+      .subpage .project-snapshots .snapshot-slide { cursor: pointer; }
+      .snapshot-modal {
+        display: none; position: fixed; inset: 0; z-index: 9999;
+        background: rgba(0, 0, 0, 0.85); align-items: center; justify-content: center;
+        padding: 20px; box-sizing: border-box;
+      }
+      .snapshot-modal.is-open { display: flex; }
+      .snapshot-modal__inner {
+        position: relative;
+        width: 90vw; height: 80vh;
+        max-width: 1000px; max-height: 700px;
+        display: flex; align-items: center; justify-content: center;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+      }
+      .snapshot-modal__inner img {
+        width: 100%; height: 100%;
+        object-fit: contain;
+        border-radius: 8px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+      .snapshot-modal__close {
+        position: absolute; top: -44px; right: 0;
+        width: 36px; height: 36px; border: none; border-radius: 50%;
+        background: #fff; color: #333; font-size: 24px; line-height: 1;
+        cursor: pointer; display: flex; align-items: center; justify-content: center;
+        padding: 0; transition: background 0.2s, color 0.2s;
+      }
+      .snapshot-modal__close:hover { background: #4a0e8f; color: #fff; }
+      .snapshot-modal__nav {
+        position: absolute; top: 50%; transform: translateY(-50%);
+        width: 48px; height: 48px; border: none; border-radius: 50%;
+        background: rgba(255,255,255,0.9); color: #333; font-size: 24px;
+        cursor: pointer; display: flex; align-items: center; justify-content: center;
+        padding: 0; transition: background 0.2s, color 0.2s;
+      }
+      .snapshot-modal__nav:hover { background: #4a0e8f; color: #fff; }
+      .snapshot-modal__nav--prev { left: -60px; }
+      .snapshot-modal__nav--next { right: -60px; }
+      .snapshot-modal__nav.is-hidden { display: none; }
+      .snapshot-modal__counter {
+        position: absolute; bottom: -36px; left: 0; right: 0;
+        text-align: center; color: rgba(255,255,255,0.9); font-size: 14px;
+      }
+      @media (max-width: 767px) {
+        .snapshot-modal__nav--prev { left: 8px; }
+        .snapshot-modal__nav--next { right: 8px; }
+      }
+      @media (min-width: 768px) {
+        .subpage .project-snapshots .snapshot-slide { flex: 0 0 140px; }
+        .subpage .project-snapshots .snapshot-slide.is-focused { flex: 0 0 220px; }
+        .subpage .project-snapshots .snapshot-slide img { height: 100px; }
+        .subpage .project-snapshots .snapshot-slide.is-focused img { height: 140px; }
+      }
       .subpage .site-footer {
         margin-top: auto;
         background: #2c2c2c;
@@ -109,7 +310,7 @@
 
       <section class="subpage-hero">
         <div class="container">
-          <h1>Last Projects</h1>
+          <h1>Our Projects</h1>
           <p>Selected work we have delivered for our clients. Each project includes strategy, execution, and ongoing support where needed.</p>
         </div>
       </section>
@@ -150,7 +351,6 @@
             <h2>Payment System based on Blockchain</h2>
             <p class="lead">GreenBay P&DT's ambition is to launch a new Blockchain based International cross border "Swish" eWallet App and GSM e-commerce product. GBPDT strive to be one of three leading overseas payment and money transfers service e-commerce companies for Transfers for Remittance and Donations.</p>
             <p class="skills">Skills: Node.js, Golang, Erlang, DB2, IBM Hyperledger Fabric, Smart Contract, Microservice, React.js/Redux, Vue.JS</p>
-            <p class="ref">Reference: GreenBay mainly consists of e-wallet api services based on blockchain and included some test front ends for PoC.</p>
             <p class="meta" style="margin-top: 16px; margin-bottom: 8px;"><strong>Snapshots</strong></p>
             <div class="project-snapshots">
               <img src="./public/projects/greenbay/greenbay-1.png" alt="Payment System based on Blockchain (GreenBay)" />
@@ -172,10 +372,9 @@
           </div>
 
           <div class="detail-item" id="novowatch">
-            <h2>Novo Watch (Shopify eCommerce)</h2>
+            <h2><a href="https://www.novowatch.com/" target="_blank" rel="noopener">Novo Watch (Shopify eCommerce)</a></h2>
             <p class="lead">A single vendor ecommerce project, mainly focused on watch products.</p>
             <p class="skills">Skills: Shopify, Shopify Plugin, Mongo DB</p>
-            <p class="ref"><a href="https://www.novowatch.com/" target="_blank" rel="noopener">https://www.novowatch.com/</a></p>
             <p class="meta" style="margin-top: 16px; margin-bottom: 8px;"><strong>Snapshots</strong></p>
             <div class="project-snapshots">
               <img src="./public/projects/novowatch/novowatch-1.png" alt="Novo Watch – Shopify eCommerce" />
@@ -187,10 +386,9 @@
           </div>
 
           <div class="detail-item" id="greatdivide">
-            <h2>The Great Divide (Shopify eCommerce)</h2>
+            <h2><a href="https://thegreat-divide.com/" target="_blank" rel="noopener">The Great Divide (Shopify eCommerce)</a></h2>
             <p class="lead">A single vendor ecommerce project to sell fashion brand clothes.</p>
             <p class="skills">Skills: Shopify, Shopify Plugin, Mongo DB</p>
-            <p class="ref"><a href="https://thegreat-divide.com/" target="_blank" rel="noopener">https://thegreat-divide.com/</a></p>
             <p class="meta" style="margin-top: 16px; margin-bottom: 8px;"><strong>Snapshots</strong></p>
             <div class="project-snapshots">
               <img src="./public/projects/greatdivide/greatdivide-1.png" alt="The Great Divide – Shopify store" />
@@ -202,13 +400,6 @@
               <img src="./public/projects/greatdivide/greatdivide-7.png" alt="The Great Divide – Shopify store" />
               <img src="./public/projects/greatdivide/greatdivide-8.png" alt="The Great Divide – Shopify store" />
             </div>
-          </div>
-
-          <div class="detail-item" id="surprisehr">
-            <h2>Employee Management System</h2>
-            <p class="lead">An Employee management system is designed to simplify the process of record maintenance of employees in an organization. It helps in managing the information of employees for HR functions. In general, employee management system is a part of a comprehensive Human Resource Management System.</p>
-            <p class="skills">Skills: Ruby on Rails, HAML, PostgreSQL</p>
-            <p class="ref"><a href="https://surprisehr.com/" target="_blank" rel="noopener">https://surprisehr.com/</a></p>
           </div>
 
           <div class="detail-item" id="frink">
@@ -228,10 +419,9 @@
           </div>
 
           <div class="detail-item" id="stayhired">
-            <h2>Stay Hired</h2>
+            <h2><a href="https://candidate.stayhired.co.uk" target="_blank" rel="noopener">Stay Hired</a></h2>
             <p class="lead">Stay Hired is a platform for recruiters and job seekers—helping employers and candidates connect, and supporting a positive employee experience with recognition and engagement.</p>
             <p class="skills">Skills: Angular7, MySql, Laravel, Machine Learning</p>
-            <p class="ref"><a href="https://candidate.stayhired.co.uk" target="_blank" rel="noopener">candidate.stayhired.co.uk</a> · <a href="https://recruiter.stayhired.co.uk" target="_blank" rel="noopener">recruiter.stayhired.co.uk</a></p>
             <p class="meta" style="margin-top: 16px; margin-bottom: 8px;"><strong>Snapshots</strong></p>
             <div class="project-snapshots">
               <img src="./public/projects/stayhired/stayhired-1.png" alt="Stay Hired – Employee experience and platform intro" />
@@ -246,10 +436,9 @@
           </div>
 
           <div class="detail-item" id="auassist">
-            <h2>AU Assist</h2>
+            <h2><a href="https://auassist.co.uk" target="_blank" rel="noopener">AU Assist</a></h2>
             <p class="lead">CMS for car repairing booking system. AU Assist (Auto Union Warranties Ltd.) offers warranty quotes, vehicle registration lookup, repair/MOT/service booking, care plans, and a garage finder—with mobile app and partner dashboard.</p>
             <p class="skills">Skills: Angular5, Mysql, Node.js, AWS, Onesignal, React Native</p>
-            <p class="ref"><a href="https://auassist.co.uk" target="_blank" rel="noopener">https://auassist.co.uk</a></p>
             <p class="meta" style="margin-top: 16px; margin-bottom: 8px;"><strong>Snapshots</strong></p>
             <div class="project-snapshots">
               <img src="./public/projects/auassist/auassist-1.png" alt="AU Assist – Warranty Quote" />
@@ -266,10 +455,9 @@
           </div>
 
           <div class="detail-item" id="foodcare">
-            <h2>Food Care</h2>
+            <h2><a href="https://app.foodcare.com" target="_blank" rel="noopener">Food Care</a></h2>
             <p class="lead">Foodcare is a CRM to manage restaurants, recipes and foods. This project was developed under TDD (Test Driven Development). For DevOps architecture, used Heroku, CircleCI, HoneyBadger.</p>
             <p class="skills">Skills: Ruby on Rails, PostgreSQL.</p>
-            <p class="ref"><a href="https://app.foodcare.com" target="_blank" rel="noopener">https://app.foodcare.com</a></p>
             <p class="meta" style="margin-top: 16px; margin-bottom: 8px;"><strong>Snapshots</strong></p>
             <div class="project-snapshots">
               <img src="./public/projects/foodcare/foodcare-1.png" alt="Food Care – CRM" />
@@ -285,17 +473,23 @@
           </div>
 
           <div class="detail-item" id="cms">
-            <h2>Content Management System</h2>
+            <h2><a href="https://cms.law/en/int/" target="_blank" rel="noopener">Content Management System</a></h2>
             <p class="lead">A content management system (CMS) is an application that is used to manage web content, allowing multiple contributors to create, edit and publish. Content in a CMS is typically stored in a database and displayed in a presentation layer based on a set of templates.</p>
             <p class="skills">Skills: Angular, Node.js, MongoDB</p>
-            <p class="ref"><a href="https://cms.law/en/int/" target="_blank" rel="noopener">https://cms.law/en/int/</a></p>
+            <p class="meta" style="margin-top: 16px; margin-bottom: 8px;"><strong>Snapshots</strong></p>
+            <div class="project-snapshots">
+              <img src="./public/projects/cms/cms-1.png" alt="Content Management System – CMS" />
+              <img src="./public/projects/cms/cms-2.png" alt="Content Management System – CMS" />
+              <img src="./public/projects/cms/cms-3.png" alt="Content Management System – CMS" />
+              <img src="./public/projects/cms/cms-4.png" alt="Content Management System – CMS" />
+              <img src="./public/projects/cms/cms-5.png" alt="Content Management System – CMS" />
+            </div>
           </div>
 
           <div class="detail-item" id="fti">
-            <h2>FTI Flight Booking System</h2>
+            <h2><a href="https://www.fti-ticketshop.de/" target="_blank" rel="noopener">FTI Flight Booking System</a></h2>
             <p class="lead">FTI is an advanced online flight booking software that combines back office, online booking (B2C) and partner booking (B2B). It is a cloud-based software so you can access it anytime from anywhere.</p>
             <p class="skills">Skills: Vue.js, Golang, MySQL</p>
-            <p class="ref"><a href="https://www.fti-ticketshop.de/" target="_blank" rel="noopener">https://www.fti-ticketshop.de/</a></p>
             <p class="meta" style="margin-top: 16px; margin-bottom: 8px;"><strong>Snapshots</strong></p>
             <div class="project-snapshots">
               <img src="./public/projects/fti/fti-1.png" alt="FTI Ticket Shop – Booking management and search" />
@@ -309,10 +503,9 @@
           </div>
 
           <div class="detail-item" id="roomres">
-            <h2>Room-Res Hotel Booking</h2>
+            <h2><a href="https://room-res.com/" target="_blank" rel="noopener">Room-Res Hotel Booking</a></h2>
             <p class="lead">Room-Res.com is a platform made exclusively for travel agents that helps users make hotel bookings comparing the best net rates and commissionable rates available. A Hotel Booking System works by processing secure online reservations made through a hotel's website. The data is then passed onto a Backend System, which can be accessed by hotels to manage bookings.</p>
             <p class="skills">Skills: React.js, Golang, PostgreSQL, Email Marketing</p>
-            <p class="ref"><a href="https://room-res.com/" target="_blank" rel="noopener">https://room-res.com/</a></p>
             <p class="meta" style="margin-top: 16px; margin-bottom: 8px;"><strong>Snapshots</strong></p>
             <div class="project-snapshots">
               <img src="./public/projects/roomres/roomres-1.png" alt="Room-Res – Hotel detail, reviews and pricing" />
@@ -323,10 +516,9 @@
           </div>
 
           <div class="detail-item" id="cimpatico">
-            <h2>Cimpatico</h2>
+            <h2><a href="https://cimpatico.com/" target="_blank" rel="noopener">Cimpatico</a></h2>
             <p class="lead">This system produces live-stream talk shows about complex social and business sector challenges and the people like you who are working on them. The platform combines community feeds, posts and comments, organizations and episodes, with video streaming and simulcast.</p>
             <p class="skills">Skills: Angular5.x, 6.x, Firebase, Algolia</p>
-            <p class="ref"><a href="https://cimpatico.com/" target="_blank" rel="noopener">https://cimpatico.com/</a></p>
             <p class="meta" style="margin-top: 16px; margin-bottom: 8px;"><strong>Snapshots</strong></p>
             <div class="project-snapshots">
               <img src="./public/projects/cimpatico/cimpatico-1.png" alt="Cimpatico – Community feed, post and comments" />
@@ -335,10 +527,9 @@
           </div>
 
           <div class="detail-item" id="findacargo">
-            <h2>Find a Cargo</h2>
+            <h2><a href="http://my.nemlevering.dk" target="_blank" rel="noopener">Find a Cargo</a></h2>
             <p class="lead">Find a Cargo is a web/app platform which finds a cargo in Google Maps.</p>
             <p class="skills">Skills: Angular, Node.js, MongoDB</p>
-            <p class="ref">URLs: <a href="http://my.nemlevering.dk" target="_blank" rel="noopener">my.nemlevering.dk</a>, <a href="https://track.nemlevering.dk" target="_blank" rel="noopener">track.nemlevering.dk</a>, <a href="https://label.goidag.com" target="_blank" rel="noopener">label.goidag.com</a>, <a href="https://rating.goidag.com" target="_blank" rel="noopener">rating.goidag.com</a>, <a href="https://www.goidag.com" target="_blank" rel="noopener">goidag.com</a></p>
             <p class="meta" style="margin-top: 16px; margin-bottom: 8px;"><strong>Snapshots</strong></p>
             <div class="project-snapshots">
               <img src="./public/projects/findacargo/findacargo-1.png" alt="Find a Cargo" />
@@ -351,10 +542,9 @@
           </div>
 
           <div class="detail-item" id="smartkarrot">
-            <h2>Smart Karrot</h2>
+            <h2><a href="https://platform.smartkarrot.com" target="_blank" rel="noopener">Smart Karrot</a></h2>
             <p class="lead">Smart Karrot is a web platform for building profiles and more.</p>
             <p class="skills">Skills: Dynamic DB, Angular 6</p>
-            <p class="ref"><a href="https://platform.smartkarrot.com" target="_blank" rel="noopener">https://platform.smartkarrot.com</a></p>
             <p class="meta" style="margin-top: 16px; margin-bottom: 8px;"><strong>Snapshots</strong></p>
             <div class="project-snapshots">
               <img src="./public/projects/smartkarrot/smartkarrot-1.jpg" alt="Smart Karrot" />
@@ -403,18 +593,282 @@
             </div>
           </div>
 
-          <div class="detail-item" id="other-samples">
-            <h2>Other Samples</h2>
-            <p class="lead">Additional project samples and demos.</p>
-            <ul style="margin: 12px 0 0; padding-left: 20px; line-height: 1.9;">
-              <li>Gazprompt – Image &amp; Text generator: <a href="https://drive.google.com/file/d/1FbSmFV5zSzJmnguQfZLrHPDC7Rz2ke3k/view?usp=sharing" target="_blank" rel="noopener">View</a></li>
-              <li>TaskADE – AI Code generator: <a href="https://www.taskade.com/generate/programming/html-code" target="_blank" rel="noopener">taskade.com/generate/programming/html-code</a></li>
-              <li>Swing – AI tennis ball tracking system: <a href="https://swing.tennis" target="_blank" rel="noopener">swing.tennis</a></li>
-              <li>Sharly – Smart document summarize tool: <a href="https://sharly.ai" target="_blank" rel="noopener">sharly.ai</a></li>
-              <li>NoteBookingNorge – Meeting Booking System: <a href="https://motebookingnorge.no/" target="_blank" rel="noopener">motebookingnorge.no</a></li>
-              <li>Ocada AI – token trading audit system: <a href="https://ocada.ai/" target="_blank" rel="noopener">ocada.ai</a></li>
-            </ul>
+          <div class="detail-item" id="saalimtechnologies">
+            <h2><a href="https://www.saalimtechnologies.com" target="_blank" rel="noopener">Saalim Technologies</a></h2>
+            <p class="lead">Web and technology solutions.</p>
+            <p class="skills">Skills: Web development, full-stack.</p>
           </div>
+          <div class="detail-item" id="solveyor">
+            <h2><a href="https://www.solveyor.in" target="_blank" rel="noopener">Solveyor</a></h2>
+            <p class="lead">Platform and web solutions.</p>
+            <p class="skills">Skills: Web development, full-stack.</p>
+          </div>
+          <div class="detail-item" id="cafeashirwad">
+            <h2><a href="https://cafeashirwad.com/" target="_blank" rel="noopener">Cafe Ashirwad</a></h2>
+            <p class="lead">Cafe and hospitality website.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="hindisteno">
+            <h2><a href="https://www.hindisteno.com" target="_blank" rel="noopener">Hindi Steno</a></h2>
+            <p class="lead">Stenography and transcription platform.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="stenoadda">
+            <h2><a href="https://www.stenoadda.in" target="_blank" rel="noopener">Steno Adda</a></h2>
+            <p class="lead">Stenography community and resources.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="aimlvalley">
+            <h2><a href="https://www.aimlvalley.com" target="_blank" rel="noopener">AIML Valley</a></h2>
+            <p class="lead">AI and machine learning platform.</p>
+            <p class="skills">Skills: Web development, AI/ML.</p>
+          </div>
+          <div class="detail-item" id="webifairs">
+            <h2><a href="https://university.webifairs.com" target="_blank" rel="noopener">Webifairs University</a></h2>
+            <p class="lead">Virtual events and university platform.</p>
+            <p class="skills">Skills: Web development, events.</p>
+          </div>
+          <div class="detail-item" id="lipmonthly">
+            <h2><a href="https://www.lipmonthly.com" target="_blank" rel="noopener">Lip Monthly</a></h2>
+            <p class="lead">Subscription and eCommerce platform.</p>
+            <p class="skills">Skills: Web development, eCommerce.</p>
+          </div>
+          <div class="detail-item" id="airflowseatcovers">
+            <h2><a href="https://airflowseatcovers.com" target="_blank" rel="noopener">Airflow Seat Covers</a></h2>
+            <p class="lead">E-commerce and product catalog.</p>
+            <p class="skills">Skills: Web development, eCommerce.</p>
+          </div>
+          <div class="detail-item" id="essentialapparel">
+            <h2><a href="https://essentialapparel.com" target="_blank" rel="noopener">Essential Apparel</a></h2>
+            <p class="lead">Fashion and apparel eCommerce.</p>
+            <p class="skills">Skills: Web development, eCommerce.</p>
+          </div>
+          <div class="detail-item" id="jimmyjazz">
+            <h2><a href="https://www.jimmyjazz.com" target="_blank" rel="noopener">Jimmy Jazz</a></h2>
+            <p class="lead">Fashion retail eCommerce platform.</p>
+            <p class="skills">Skills: Web development, eCommerce.</p>
+          </div>
+          <div class="detail-item" id="fitwib">
+            <h2><a href="https://fitwib.com/" target="_blank" rel="noopener">Fitwib</a></h2>
+            <p class="lead">Fitness and wellness platform.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="blutor">
+            <h2><a href="https://blutor.com/" target="_blank" rel="noopener">Blutor</a></h2>
+            <p class="lead">Web platform and services.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="blutorads">
+            <h2><a href="https://blutorads.com/" target="_blank" rel="noopener">Blutor Ads</a></h2>
+            <p class="lead">Advertising and marketing platform.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="eli73">
+            <h2><a href="https://www.eli73.co.uk/" target="_blank" rel="noopener">Eli73</a></h2>
+            <p class="lead">Web and digital solutions.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="padma">
+            <h2><a href="https://www.padma.no/" target="_blank" rel="noopener">Padma</a></h2>
+            <p class="lead">Web platform and services.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="craftonline">
+            <h2><a href="https://www.craftonline.com.au/" target="_blank" rel="noopener">Craft Online</a></h2>
+            <p class="lead">Craft and eCommerce platform.</p>
+            <p class="skills">Skills: Web development, eCommerce.</p>
+          </div>
+          <div class="detail-item" id="professornutz">
+            <h2><a href="https://www.professornutz.com/" target="_blank" rel="noopener">Professor Nutz</a></h2>
+            <p class="lead">Education and learning platform.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="manssion">
+            <h2><a href="https://manssion.com/" target="_blank" rel="noopener">Manssion</a></h2>
+            <p class="lead">Web platform and brand.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="jmillsstudio">
+            <h2><a href="https://jmillsstudio.com/" target="_blank" rel="noopener">J Mills Studio</a></h2>
+            <p class="lead">Creative studio and portfolio.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="zenbelle">
+            <h2><a href="https://zenbelle.com/" target="_blank" rel="noopener">Zenbelle</a></h2>
+            <p class="lead">Lifestyle and wellness brand.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="atomlearning">
+            <h2><a href="https://atomlearning.com/" target="_blank" rel="noopener">Atom Learning</a></h2>
+            <p class="lead">EdTech and learning platform.</p>
+            <p class="skills">Skills: Web development, education.</p>
+          </div>
+          <div class="detail-item" id="cgeltd">
+            <h2><a href="https://www.cgeltd.ie/" target="_blank" rel="noopener">CGE Ltd</a></h2>
+            <p class="lead">Business and corporate website.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="speedyrecon">
+            <h2><a href="https://speedyrecon.com/" target="_blank" rel="noopener">Speedy Recon</a></h2>
+            <p class="lead">Reconnaissance and data platform.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="idahodivorcecenter">
+            <h2><a href="https://www.idahodivorcecenter.com/" target="_blank" rel="noopener">Idaho Divorce Center</a></h2>
+            <p class="lead">Legal services and information platform.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="adcoconstruct">
+            <h2><a href="https://www.adcoconstruct.com.au/" target="_blank" rel="noopener">Adco Construct</a></h2>
+            <p class="lead">Construction and building services.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="smokecartel">
+            <h2><a href="https://www.smokecartel.com/" target="_blank" rel="noopener">Smoke Cartel</a></h2>
+            <p class="lead">E-commerce and retail platform.</p>
+            <p class="skills">Skills: Web development, eCommerce.</p>
+          </div>
+          <div class="detail-item" id="taxirentals">
+            <h2><a href="https://taxi-rentals.com/" target="_blank" rel="noopener">Taxi Rentals</a></h2>
+            <p class="lead">Transport and rental booking platform.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="cheyenneinjuryattorney">
+            <h2><a href="https://cheyenneinjuryattorney.com/" target="_blank" rel="noopener">Cheyenne Injury Attorney</a></h2>
+            <p class="lead">Legal services website.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="holmerpark">
+            <h2><a href="https://www.holmerpark.co.uk/" target="_blank" rel="noopener">Holmer Park</a></h2>
+            <p class="lead">Park and venue website.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="everythingaustralian">
+            <h2><a href="https://everythingaustralian.com.au/" target="_blank" rel="noopener">Everything Australian</a></h2>
+            <p class="lead">Australian products and eCommerce.</p>
+            <p class="skills">Skills: Web development, eCommerce.</p>
+          </div>
+          <div class="detail-item" id="lunchconcept">
+            <h2><a href="https://lunchconcept.com/" target="_blank" rel="noopener">Lunch Concept</a></h2>
+            <p class="lead">Food and catering platform.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="morseys">
+            <h2><a href="https://morseys.com/" target="_blank" rel="noopener">Morseys</a></h2>
+            <p class="lead">Retail and eCommerce platform.</p>
+            <p class="skills">Skills: Web development, eCommerce.</p>
+          </div>
+          <div class="detail-item" id="cultmoda">
+            <h2><a href="https://www.cultmoda.com.au/" target="_blank" rel="noopener">Cult Moda</a></h2>
+            <p class="lead">Fashion and lifestyle eCommerce.</p>
+            <p class="skills">Skills: Web development, eCommerce.</p>
+          </div>
+          <div class="detail-item" id="shyness">
+            <h2><a href="https://shyness.store/" target="_blank" rel="noopener">Shyness Store</a></h2>
+            <p class="lead">E-commerce storefront.</p>
+            <p class="skills">Skills: Web development, eCommerce.</p>
+          </div>
+          <div class="detail-item" id="thehorse">
+            <h2><a href="https://www.thehorse.com.au/" target="_blank" rel="noopener">The Horse</a></h2>
+            <p class="lead">Lifestyle and retail brand.</p>
+            <p class="skills">Skills: Web development, eCommerce.</p>
+          </div>
+          <div class="detail-item" id="amberinteriordesign">
+            <h2><a href="https://shoppe.amberinteriordesign.com/" target="_blank" rel="noopener">Amber Interior Design</a></h2>
+            <p class="lead">Interior design and shopping platform.</p>
+            <p class="skills">Skills: Web development, eCommerce.</p>
+          </div>
+          <div class="detail-item" id="hebeboutique">
+            <h2><a href="https://hebeboutique.com/" target="_blank" rel="noopener">Hebe Boutique</a></h2>
+            <p class="lead">Fashion boutique eCommerce.</p>
+            <p class="skills">Skills: Web development, eCommerce.</p>
+          </div>
+          <div class="detail-item" id="madpaws">
+            <h2><a href="https://www.madpaws.com.au/" target="_blank" rel="noopener">Mad Paws</a></h2>
+            <p class="lead">Pet care and services platform.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="almonature">
+            <h2><a href="https://www.almonature.com/en/" target="_blank" rel="noopener">Almo Nature</a></h2>
+            <p class="lead">Pet food and nature brand.</p>
+            <p class="skills">Skills: Web development, eCommerce.</p>
+          </div>
+          <div class="detail-item" id="polygram">
+            <h2><a href="https://www.polygram.co/" target="_blank" rel="noopener">Polygram</a></h2>
+            <p class="lead">Web platform and services.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="sablecard">
+            <h2><a href="https://sablecard.com/" target="_blank" rel="noopener">Sable Card</a></h2>
+            <p class="lead">Card and financial services platform.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="thefurrow">
+            <h2><a href="https://thefurrow.tv/" target="_blank" rel="noopener">The Furrow TV</a></h2>
+            <p class="lead">Video and media platform.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="ready">
+            <h2><a href="https://ready.so/" target="_blank" rel="noopener">Ready</a></h2>
+            <p class="lead">Web platform and product.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="easyprez">
+            <h2><a href="https://easyprez.fr/" target="_blank" rel="noopener">Easy Prez</a></h2>
+            <p class="lead">Presentation and content platform.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="etuovi">
+            <h2><a href="https://www.etuovi.com/" target="_blank" rel="noopener">Etuovi</a></h2>
+            <p class="lead">Real estate and property platform.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="sloto">
+            <h2><a href="https://sloto.netlify.app/" target="_blank" rel="noopener">Sloto</a></h2>
+            <p class="lead">Web app and platform.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="studykik">
+            <h2><a href="https://studykik.com/" target="_blank" rel="noopener">Study Kik</a></h2>
+            <p class="lead">Education and study platform.</p>
+            <p class="skills">Skills: Web development, education.</p>
+          </div>
+          <div class="detail-item" id="save268">
+            <h2><a href="https://save268.com/" target="_blank" rel="noopener">Save268</a></h2>
+            <p class="lead">Savings and deals platform.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="plata3b">
+            <h2><a href="https://plata3b.com/" target="_blank" rel="noopener">Plata 3B</a></h2>
+            <p class="lead">Web platform and services.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="foxconnect">
+            <h2><a href="https://crm.foxconnect.app/sign-in" target="_blank" rel="noopener">Fox Connect CRM</a></h2>
+            <p class="lead">CRM and business management platform.</p>
+            <p class="skills">Skills: Web development, CRM.</p>
+          </div>
+          <div class="detail-item" id="fostermarketplace">
+            <h2><a href="https://fostermarketplace.app/" target="_blank" rel="noopener">Foster Marketplace</a></h2>
+            <p class="lead">Marketplace platform and app.</p>
+            <p class="skills">Skills: Web development, marketplace.</p>
+          </div>
+          <div class="detail-item" id="onwardops">
+            <h2><a href="https://onwardops.org/" target="_blank" rel="noopener">Onward Ops</a></h2>
+            <p class="lead">Operations and nonprofit platform.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="gouncharted">
+            <h2><a href="https://www.gouncharted.com/" target="_blank" rel="noopener">Go Uncharted</a></h2>
+            <p class="lead">Travel and adventure platform.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+          <div class="detail-item" id="swellcityguide">
+            <h2><a href="https://www.swellcityguide.com/" target="_blank" rel="noopener">Swell City Guide</a></h2>
+            <p class="lead">City guide and local discovery platform.</p>
+            <p class="skills">Skills: Web development.</p>
+          </div>
+
         </div>
       </section>
 
@@ -424,6 +878,152 @@
           <p>© Happy Vic</p>
         </div>
       </footer>
+
+      <div class="snapshot-modal" id="snapshotModal" aria-hidden="true">
+        <div class="snapshot-modal__inner">
+          <button type="button" class="snapshot-modal__close" id="snapshotModalClose" aria-label="Close">&times;</button>
+          <button type="button" class="snapshot-modal__nav snapshot-modal__nav--prev" id="snapshotModalPrev" aria-label="Previous">&lsaquo;</button>
+          <img src="" alt="" id="snapshotModalImg" />
+          <button type="button" class="snapshot-modal__nav snapshot-modal__nav--next" id="snapshotModalNext" aria-label="Next">&rsaquo;</button>
+          <div class="snapshot-modal__counter" id="snapshotModalCounter"></div>
+        </div>
+      </div>
     </div>
+    <script>
+(function() {
+  var modal = document.getElementById('snapshotModal');
+  var modalImg = document.getElementById('snapshotModalImg');
+  var modalClose = document.getElementById('snapshotModalClose');
+  var modalPrev = document.getElementById('snapshotModalPrev');
+  var modalNext = document.getElementById('snapshotModalNext');
+  var modalCounter = document.getElementById('snapshotModalCounter');
+
+  var modalSlides = [];
+  var modalIndex = 0;
+
+  function showModalSlide() {
+    if (!modalImg || !modalSlides.length) return;
+    var s = modalSlides[modalIndex];
+    modalImg.src = s.src;
+    modalImg.alt = s.alt || '';
+    if (modalPrev) modalPrev.classList.toggle('is-hidden', modalIndex <= 0);
+    if (modalNext) modalNext.classList.toggle('is-hidden', modalIndex >= modalSlides.length - 1);
+    if (modalCounter) modalCounter.textContent = (modalIndex + 1) + ' / ' + modalSlides.length;
+  }
+
+  function openModal(slides, index) {
+    if (!modal || !modalImg || !slides || !slides.length) return;
+    modalSlides = slides;
+    modalIndex = index >= 0 && index < slides.length ? index : 0;
+    showModalSlide();
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  function modalGoPrev() {
+    if (modalIndex > 0) { modalIndex--; showModalSlide(); }
+  }
+  function modalGoNext() {
+    if (modalIndex < modalSlides.length - 1) { modalIndex++; showModalSlide(); }
+  }
+
+  function wrapSnapshots() {
+    document.querySelectorAll('.project-snapshots').forEach(function(carousel) {
+      if (carousel.querySelector('.snapshot-slide')) return;
+      var imgs = [].slice.call(carousel.querySelectorAll('img'));
+      imgs.forEach(function(img) {
+        var wrap = document.createElement('div');
+        wrap.className = 'snapshot-slide';
+        img.parentNode.insertBefore(wrap, img);
+        wrap.appendChild(img);
+      });
+      var slides = carousel.querySelectorAll('.snapshot-slide');
+      if (slides.length) slides[0].classList.add('is-focused');
+      var slideData = [].map.call(slides, function(s) {
+        var im = s.querySelector('img');
+        return im ? { src: im.src, alt: im.alt || '' } : null;
+      }).filter(Boolean);
+      slides.forEach(function(slide, idx) {
+        var img = slide.querySelector('img');
+        if (!img) return;
+        slide.addEventListener('click', function() {
+          openModal(slideData, idx);
+        });
+      });
+      var item = carousel.closest('.detail-item');
+      if (item && !item.querySelector('.detail-item__hero') && slideData.length) {
+        var hero = document.createElement('div');
+        hero.className = 'detail-item__hero';
+        hero.setAttribute('role', 'button');
+        hero.setAttribute('tabindex', '0');
+        hero.setAttribute('aria-label', 'View project screenshots');
+        var heroImg = document.createElement('img');
+        heroImg.src = slideData[0].src;
+        heroImg.alt = slideData[0].alt || 'Project screenshot';
+        hero.appendChild(heroImg);
+        item.insertBefore(hero, item.firstChild);
+        hero.addEventListener('click', function() { openModal(slideData, 0); });
+        hero.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(slideData, 0); } });
+      }
+    });
+  }
+  function updateFocus(carousel) {
+    var slides = carousel.querySelectorAll('.snapshot-slide');
+    if (!slides.length) return;
+    var rect = carousel.getBoundingClientRect();
+    var center = rect.left + rect.width / 2;
+    var best = 0, bestDist = 1e9;
+    slides.forEach(function(slide, i) {
+      var r = slide.getBoundingClientRect();
+      var slideCenter = r.left + r.width / 2;
+      var dist = Math.abs(slideCenter - center);
+      if (dist < bestDist) { bestDist = dist; best = i; }
+    });
+    slides.forEach(function(s, i) { s.classList.toggle('is-focused', i === best); });
+  }
+  function autoAdvance(carousel) {
+    var slides = carousel.querySelectorAll('.snapshot-slide');
+    if (slides.length <= 1) return;
+    var idx = [].slice.call(slides).findIndex(function(s) { return s.classList.contains('is-focused'); });
+    if (idx < 0) idx = 0;
+    idx = (idx + 1) % slides.length;
+    var target = slides[idx];
+    var scrollLeft = target.offsetLeft - (carousel.offsetWidth - target.offsetWidth) / 2;
+    carousel.scrollTo({ left: Math.max(0, scrollLeft), behavior: 'smooth' });
+    setTimeout(function() { updateFocus(carousel); }, 450);
+  }
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+  if (modalPrev) modalPrev.addEventListener('click', function(e) { e.stopPropagation(); modalGoPrev(); });
+  if (modalNext) modalNext.addEventListener('click', function(e) { e.stopPropagation(); modalGoNext(); });
+  if (modal) modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+    if (modal && modal.classList.contains('is-open')) {
+      if (e.key === 'ArrowLeft') modalGoPrev();
+      if (e.key === 'ArrowRight') modalGoNext();
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    wrapSnapshots();
+    document.querySelectorAll('.project-snapshots').forEach(function(carousel) {
+      carousel.addEventListener('scroll', function() { updateFocus(carousel); });
+      var tid = setInterval(function() { autoAdvance(carousel); }, 4500);
+      carousel.addEventListener('mouseenter', function() {
+        clearInterval(tid);
+      });
+      carousel.addEventListener('mouseleave', function() {
+        tid = setInterval(function() { autoAdvance(carousel); }, 4500);
+      });
+    });
+  });
+})();
+    </script>
   </body>
 </html>
